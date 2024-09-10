@@ -11,4 +11,6 @@ urlpatterns = [
     path("pizza/",views.pizza,name="pizza"),
     path("drink/",views.drink,name="drink"),
     path("dessert/",views.dessert,name="dessert"),
+    path("privacy/",views.privacy,name="privacy"),
+    path("terms/",views.terms,name="terms"),
 ]

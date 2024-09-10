@@ -33,3 +33,10 @@ def drink(request):
 
 def dessert(request):
     return render(request,"dessert.html")
+
+
+def privacy(request):
+    return render(request,"privacy.html")
+
+def terms(request):
+    return render(request,"terms.html")

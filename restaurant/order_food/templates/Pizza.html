@@ -200,72 +200,86 @@ a.button:hover {
     </style>
 </head>
 <body>
-        <header>
-            <h1>AY's Pizza</h1>
-            <p>Delicious Pizzas Delivered Fast!</p>
-        </header>
-        <nav style="display: flex; justify-content: flex-end; background-color: #111; padding: 10px;">
-            <a href="{% url 'login' %}" class="nav-link">Sign In</a>
-        </nav>
+    <header>
+        <h1>AY's Pizza</h1>
+        <p>Delicious Pizzas Delivered Fast!</p>
+    </header>
+    <nav style="display: flex; justify-content: flex-end; background-color: #111; padding: 10px;">
+        <a href="{% url 'login' %}" class="nav-link">Sign In</a>
+    </nav>
 
-        <div class="hero">
-            <h1>Welcome to AY's</h1>
-            <p>Get your favorite pizza delivered hot and fresh</p>
-        </div>
-        <nav>
-            <a href="{% url 'pizza' %}">Pizza's</a>
-            <a href="{% url 'drink' %}">Drinks</a>
-            <a href="{% url 'dessert' %}">Desserts</a>
-        </nav>
-        <div class="content">
-            <div class="container">
-                <div class="section">
-                    <h2>Featured Pizzas</h2>
-                    <div class="pizza-list">
-                        <div class="pizza-item">
-                            <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2018/04/sicilian-cheese-1-1024x626.jpg.optimal.jpg">
-                            <h3>Cheez Pizza</h3>
-                            <p>$8.99</p>
-                        </div>
-                        <div class="pizza-item">
-                            <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2017/10/shutterstock_570541132.jpg.optimal.jpg">
-                            <h3>Veggie Pizza Pizza</h3>
-                            <p>$9.99</p>
-                        </div>
-                        <div class="pizza-item">
-                            <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2017/10/shutterstock_514457074.jpg.optimal.jpg">
-                            <h3>Pepperoni Pizza</h3>
-                            <p>$12.99</p>
-                        </div>                        <div class="pizza-item">
-                            <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2017/11/The-210-Carnivore-pizza-1024x682.jpg.optimal.jpg">
-                            <h3>Meat Pizza </h3>
-                            <p>$15.99</p>
-                        </div>                        <div class="pizza-item">
-                            <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2017/10/shutterstock_347791016.jpg.optimal.jpg">
-                            <h3>Margherita Pizza</h3>
-                            <p>$11.99</p>
-                        </div>                        <div class="pizza-item">
-                            <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2017/10/shutterstock_184944413.jpg.optimal.jpg">
-                            <h3>BBQ Chicken Pizza</h3>
-                            <p>$12.99</p>
-                        </div>                   
-                <div class="button-container">
-                    <a href="#" class="button">Order Now</a>
-                </div>
-            </div>
+    <div class="hero">
+        <h1>Welcome to AY's</h1>
+        <p>Get your favorite pizza delivered hot and fresh</p>
+    </div>
+    <nav>
+        <a href="{% url 'pizza' %}">Pizza's</a>
+        <a href="{% url 'drink' %}">Drinks</a>
+        <a href="{% url 'dessert' %}">Desserts</a>
+    </nav>
+    <div class="content">
+        <div class="container">
+            <div class="section">
+                <h2>Featured Pizzas</h2>
+                <div class="pizza-list">
+                    <div class="pizza-item">
+                        <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2018/04/sicilian-cheese-1-1024x626.jpg.optimal.jpg">
+                        <h3>Cheez Pizza</h3>
+                        <p>$8.99</p>
+                    </div>
+                    <div class="pizza-item">
+                        <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2017/10/shutterstock_570541132.jpg.optimal.jpg">
+                        <h3>Veggie Pizza Pizza</h3>
+                        <p>$9.99</p>
+                    </div>
+                    <div class="pizza-item">
+                        <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2017/10/shutterstock_514457074.jpg.optimal.jpg">
+                        <h3>Pepperoni Pizza</h3>
+                        <p>$12.99</p>
+                    </div>                        <div class="pizza-item">
+                        <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2017/11/The-210-Carnivore-pizza-1024x682.jpg.optimal.jpg">
+                        <h3>Meat Pizza </h3>
+                        <p>$15.99</p>
+                    </div>                        <div class="pizza-item">
+                        <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2017/10/shutterstock_347791016.jpg.optimal.jpg">
+                        <h3>Margherita Pizza</h3>
+                        <p>$11.99</p>
+                    </div>                        <div class="pizza-item">
+                        <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2017/10/shutterstock_184944413.jpg.optimal.jpg">
+                        <h3>BBQ Chicken Pizza</h3>
+                        <p>$12.99</p>
+                    </div>                   
+                    <div class="button-container">
+                        <a href="#" class="button">Order Now</a>
+                    </div>
         </div>
     </div>
+</div>
 
-    <footer>
-        <p>&copy; 2024 Domino's Pizza. All rights reserved.</p>
-        <nav>
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'login' %}">Order Online</a>
-            <a href="{% url 'register' %}">Dine Out</a>
-            <a href="{% url 'contact_us' %}">Contact Us</a>
-        </nav>
+<footer role="contentinfo">
+    <p>&copy; 2024 Domino's Pizza. All rights reserved.</p>
+    <p>
+        Order a delicious pizza on the go, anywhere, anytime. 
+        AY's Pizza is happy to assist you with your every order. 
+        Every time you order, you get a hot and fresh pizza in less than thirty minutes. 
+        <strong>*T&C Apply.</strong>
+    </p>
+    <p>
+        Hurry up and place your order now!
+    </p>
+    <p>
+        &copy; 2024 AY's India. All rights reserved. License Number: 10017011004220
+    </p>
+</footer>
+<footer>
+    <p>&copy; 2024 AY's Pizza. All rights reserved.</p>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'privacy' %}">Privacy</a>
+        <a href="{% url 'terms' %}">Terms and Condition</a>
+        <a href="{% url 'contact_us' %}">Contact Us</a>
+    </nav>
 
-    </footer>
-
+</footer>
 </body>
 </html>
