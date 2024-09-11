@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #222;
+            background-color: #1a1a1a;
             color: #ddd;
             overflow-x: hidden;
         }
@@ -18,11 +18,11 @@
             width: 250px;
             position: fixed;
             top: 0;
-            left: -250px; /* Hide the sidebar off-screen */
+            left: -250px;
             background-color: #111;
             color: white;
             overflow-x: hidden;
-            transition: 0.3s; /* Smooth slide effect */
+            transition: 0.3s;
             padding-top: 20px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.7);
         }
@@ -35,14 +35,6 @@
         }
         .sidebar a:hover {
             background-color: #575757;
-        }
-        .sidebar .closebtn {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-            cursor: pointer;
         }
         .menu-btn {
             font-size: 30px;
@@ -96,6 +88,7 @@
             font-size: 2em;
             margin-bottom: 20px;
             text-align: center;
+            color: #ff6f61;
         }
         .pizza-list {
             display: flex;
@@ -147,169 +140,237 @@
             text-align: center;
             padding: 15px;
         }
-        /* Navigation Bar Styles */
-nav {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    background-color: #111; /* Black background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: #111;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #ddd;
+            font-size: 16px;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+        nav a:hover {
+            color: #fff;
+            border-bottom: 2px solid #ff645a;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0071e3;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 10px;
+            border: none;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        a.button:hover {
+            background-color: #ff6f6f;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .form-group label {
+            color: #ddd;
+        }
+        select {
+            background-color: #333;
+            color: #ddd;
+            padding: 5px;
+            border: 1px solid #444;
+            border-radius: 5px;
+        }
+        select:focus {
+            outline: none;
+            border-color: #ff6f61;
+        }
 
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #ddd; /* Light text color for contrast */
-    font-size: 16px;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-    padding: 5px 0;
-    border-bottom: 2px solid transparent; /* Add a border for hover effect */
-}
-
-nav a:hover {
-    color: #fff; /* White text color on hover */
-    border-bottom: 2px solid #ff645a; /* Highlight color under text */
-}
 
 
 
-.button-container {
-    display: flex;
-    justify-content: center; /* Center the button horizontally */
-    margin-top: 20px; /* Optional: Add some space above the button */
-}
-
-a.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #0071e3; /* Initial blue color for the button */
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 10px;
-    border: none;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-a.button:hover {
-    background-color: #ff6f6f; /* Red color for hover effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
+        input[type="number"] {
+            background-color: #1a1a1a; /* Dark background */
+            color: #f0f0f0; /* Light text */
+            border: 1px solid #333; /* Subtle border */
+            padding: 8px;
+            border-radius: 5px;
+            width: 60px; /* Adjust width if needed */
+            outline: none;
+        }
+        
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none; /* Hide default spinner */
+            margin: 0;
+        }
+        
+        input[type="number"]:focus {
+            border-color: #ff4500; /* Highlight border on focus */
+        }
+        
+        label {
+            color: #f0f0f0; /* Light label text */
+        }
     </style>
 </head>
 <body>
-        <header>
-            <h1>AY's Pizza</h1>
-            <p>Delicious Pizzas Delivered Fast!</p>
-        </header>
-        <nav style="display: flex; justify-content: flex-end; background-color: #111; padding: 10px;">
-            <a href="{% url 'login' %}" class="nav-link">Sign In</a>
-        </nav>
+    <header>
+        <h1>AY's Pizza</h1>
+        <p>Delicious Pizzas Delivered Fast!</p>
+    </header>
+    <nav style="display: flex; justify-content: flex-end; background-color: #111; padding: 10px;">
+        <a href="{% url 'login' %}" class="nav-link">Sign In</a>
+    </nav>
 
-        <div class="hero">
-            <h1>Welcome to AY's</h1>
-            <p>Get your favorite pizza delivered hot and fresh</p>
-        </div>
-        <nav>
-            <a href="{% url 'pizza' %}">Pizza's</a>
-            <a href="{% url 'drink' %}">Drinks</a>
-            <a href="{% url 'dessert' %}">Desserts</a>
-        </nav>
-        <div class="content">
-            <div class="container">
-                <div class="section">
-                    <h2>Featured Pizzas, 
-                    Drinks and Desserts
-                    </h2>
-                    
-                    <div class="pizza-list">
-                        <div class="pizza-item">
-                            <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2018/04/sicilian-cheese-1-1024x626.jpg.optimal.jpg">
-                            <h3>Enjoy the Pizzas </h3>
-                            <nav>
-                                <div class="form-group">
-                                    <label for="pizza">Select Pizza<label>
-                                    <select id="pizza" name="pizza" required>
-                                        <option value="cheez_pizza">Cheez Pizza</option>
-                                        <option value="veggie_pizza">Veggie Pizza</option>
-                                        <option value="pepperoni_pizza">Pepperoni Pizza</option>
-                                        <option value="meat_pizza">Meat Pizza</option>
-                                        <option value="margherita_pizza">margherita Pizza</option>
-                                        <option value="bbq_chicken_pizza">BBQ Chicken Pizza</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
-                            </nav>
-                        </div>
-                        <div class="pizza-item">
-                            <img src="https://www.cookwithmanali.com/wp-content/uploads/2022/04/Cold-Coffee-500x500.jpg">
-                            <h3>Enjoy the Drinks</h3>
-                            <nav>
-                                <div class="form-group">
-                                    <label for="drinks">Select Drinks<label>
-                                    <select id="drinks" name="drinks" required>
-                                        <option value="cold_coffee">Cold Coffee</option>
-                                        <option value="iced_tea">Iced Tea</option>
-                                        <option value="coke">Coke </option>
-                                        <option value="beer">Beer </option>
-                                        <option value="lemonade">Lemonade </option>
-                                        <option value="sparkling_water">Sparkling Waterr</option>
-                                    </select>
-                            </nav>
-                        </div>
-                        <div class="pizza-item">
-                            <img src="https://rhubarbandcod.com/wp-content/uploads/2021/02/Hazelnut-Brownies-with-Frangelico-Ice-Cream.jpg">
-                            <h3>Enjoy the Desserts</h3>
-                            <nav>
-
-                                <div class="form-group">
-                                    <label for="desserts">Select Desserts<label>
-                                    <select id="desserts" name="desserts" required>
-                                        <option value="gulab_jamun">Gulab Jamun</option>
-                                        <option value="kulfi">Kulfi </option>
-                                        <option value="brownie">Brownie With Ice Cream</option>
-                                        <option value="rasmalai">Rasmalai</option>
-                                        <option value="tiramisu">Tiramisu</option>
-                                        <option value="phirni">Phirni</option>
-                                    </select>
-                            </nav>
-                        </div>                 
-                    </div>
-                </div>
-                <div class="button-container">
-                    <a href="#" class="button">Order Now</a>
-                </div>
-            </div>
-        </div>
+    <div class="hero">
+        <h1>Welcome to AY's</h1>
+        <p>Get your favorite pizza delivered hot and fresh</p>
     </div>
 
-    <footer role="contentinfo">
-        <p>&copy; 2024 Domino's Pizza. All rights reserved.</p>
-        <p>
-            Order a delicious pizza on the go, anywhere, anytime. 
-            AY's Pizza is happy to assist you with your every order. 
-            Every time you order, you get a hot and fresh pizza in less than thirty minutes. 
-            <strong>*T&C Apply.</strong>
-        </p>
-        <p>
-            Hurry up and place your order now!
-        </p>
-        <p>
-            &copy; 2024 AY's India. All rights reserved. License Number: 10017011004220
-        </p>
-    </footer>
+    <nav>
+        <a href="{% url 'pizza' %}">Pizzas</a>
+        <a href="{% url 'drink' %}">Drinks</a>
+        <a href="{% url 'dessert' %}">Desserts</a>
+    </nav>
+
+    <div class="content">
+        <div class="container">
+            <div class="section">
+                <h2>Featured Pizzas, Drinks, and Desserts</h2>
+                <form method="POST" action="">
+                {% csrf_token %}
+                <div class="pizza-list">
+                    <div class="pizza-item">
+                        <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2018/04/sicilian-cheese-1-1024x626.jpg.optimal.jpg" alt="Pizza">
+                        <h3>Enjoy the Pizzas</h3>
+                        <div class="form-group">
+                            <label for="pizza">Chosse Pizza</label>
+                            <select id="pizza" name="pizza" required>
+                                <option value="none">No Thanks</option>
+                                <option value="cheez_pizza">Cheese Pizza -$8.99</option>
+                                <option value="veggie_pizza">Veggie Pizza -$9.99</option>
+                                <option value="pepperoni_pizza">Pepperoni Pizza -$12.99</option>
+                                <option value="meat_pizza">Meat Pizza -$15.99</option>
+                                <option value="margherita_pizza">Margherita Pizza -$11.99</option>
+                                <option value="bbq_chicken_pizza">BBQ Chicken Pizza -$12.99</option>
+                            </select>
+                            <br><br>
+                            <label for="quantity">Quantity:</label>
+                            <select id="pizza" name="pizza_quantity" required>
+                                <option value=0>No Thanks</option>
+                                <option value=1>One</option>
+                                <option value=2>Two</option>
+                                <option value=3>Three</option>
+                                <option value=4>Four</option>
+                            </select>
+                            <br>
+                            <br>
+                            <div>
+                            <nav>
+                                <a href="{% url 'pizza' %}">See Pizza's</a>
+                            </nav>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="pizza-item">
+                        <img src="https://www.cookwithmanali.com/wp-content/uploads/2022/04/Cold-Coffee-500x500.jpg" alt="Drinks">
+                        <h3>Enjoy the Drinks</h3>
+                        <div class="form-group">
+                            <label for="drinks">Select Drinks</label>
+                            <select id="drinks" name="drink" required>
+                                <option value="none">No Thanks</option>
+                                <option value="cold_coffee">Cold Coffee -$8.99</option>
+                                <option value="iced_tea">Iced Tea -$9.99</option>
+                                <option value="coke">Coke -$12.99</option>
+                                <option value="beer">Beer -$15.99</option>
+                                <option value="lemonade">Lemonade -$11.99</option>
+                                <option value="sparkling_water">Sparkling Water -$12.99</option>
+                            </select>
+                            <br><br>
+                            <label for="quantity">Quantity:</label>
+                            <select id="drink" name="drink_quantity" required>
+                                <option value=0>No Thanks</option>
+                                <option value=1>One</option>
+                                <option value=2>Two</option>
+                                <option value=3>Three</option>
+                                <option value=4>Four</option>
+                            </select>
+                            <br>
+                            <br>
+                            <div>
+                            <nav>
+                                <a href="{% url 'drink' %}">See Drinks's</a>
+                            </nav>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="pizza-item">
+                        <img src="https://rhubarbandcod.com/wp-content/uploads/2021/02/Hazelnut-Brownies-with-Frangelico-Ice-Cream.jpg" alt="Desserts">
+                        <h3>Enjoy the Desserts</h3>
+                        <div class="form-group">
+                            <label for="desserts">Select Desserts</label>
+                            <select id="desserts" name="dessert" required>
+                                <option value="none">No Thanks</option>
+                                <option value="gulab_jamun">Gulab Jamun -$8.99</option>
+                                <option value="kulfi">Kulfi -$9.99</option>
+                                <option value="brownie">Brownie With Ice Cream -$12.99</option>
+                                <option value="rasmalai">Rasmalai -$15.99</option>
+                                <option value="tiramisu">Tiramisu -$11.99</option>
+                                <option value="phirni">Phirni -$12.99</option>
+                            </select>
+                            <br><br>
+                            <label for="quantity">Quantity:</label>
+                            <select id="dessert" name="dessert_quantity" required>
+                                <option value=0>No Thanks</option>
+                                <option value=1>One</option>
+                                <option value=2>Two</option>
+                                <option value=3>Three</option>
+                                <option value=4>Four</option>
+                            </select>
+                            <br>
+                            <br>
+                            <div>
+                            <nav>
+                                <a href="{% url 'dessert' %}">See Desserts</a>
+                            </nav>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% comment %} <div class="button-container">
+                <a href="{% url "order_detail" %}" class="button">Order Now</a>
+            </div> {% endcomment %}
+            <button type="submit">Order Now</button>
+        </div>
+    </form>
+    </div>
+
     <footer>
         <p>&copy; 2024 AY's Pizza. All rights reserved.</p>
         <nav>
             <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'privacy' %}">Privacy</a>
-            <a href="{% url 'terms' %}">Terms and Condition</a>
+            <a href="{% url 'terms' %}">Terms and Conditions</a>
             <a href="{% url 'contact_us' %}">Contact Us</a>
         </nav>
-
+        <p>
+            AY's Pizza is committed to delivering the best pizza experience. 
+            Order online for quick delivery and unbeatable flavors. 
+            <strong>*T&C Apply.</strong>
+        </p>
     </footer>
-
 </body>
 </html>

@@ -226,6 +226,9 @@ a.button:hover {
                         <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2018/04/sicilian-cheese-1-1024x626.jpg.optimal.jpg">
                         <h3>Cheez Pizza</h3>
                         <p>$8.99</p>
+                     {% comment %} <div class="button-container">
+                            <a href="#" class="button">Add to Bucket</a>
+                        </div>  {% endcomment %}
                     </div>
                     <div class="pizza-item">
                         <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2017/10/shutterstock_570541132.jpg.optimal.jpg">
@@ -250,7 +253,7 @@ a.button:hover {
                         <p>$12.99</p>
                     </div>                   
                     <div class="button-container">
-                        <a href="#" class="button">Order Now</a>
+                        <a href="{% url "order_food" %}" class="button">Order Now</a>
                     </div>
         </div>
     </div>

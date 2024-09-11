@@ -196,6 +196,33 @@
             outline: none;
             border-color: #ff6f61;
         }
+
+
+
+
+        input[type="number"] {
+            background-color: #1a1a1a; /* Dark background */
+            color: #f0f0f0; /* Light text */
+            border: 1px solid #333; /* Subtle border */
+            padding: 8px;
+            border-radius: 5px;
+            width: 60px; /* Adjust width if needed */
+            outline: none;
+        }
+        
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none; /* Hide default spinner */
+            margin: 0;
+        }
+        
+        input[type="number"]:focus {
+            border-color: #ff4500; /* Highlight border on focus */
+        }
+        
+        label {
+            color: #f0f0f0; /* Light label text */
+        }
     </style>
 </head>
 <body>
@@ -222,20 +249,39 @@
         <div class="container">
             <div class="section">
                 <h2>Featured Pizzas, Drinks, and Desserts</h2>
+                <form method="POST" action="">
+                {% csrf_token %}
                 <div class="pizza-list">
                     <div class="pizza-item">
                         <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2018/04/sicilian-cheese-1-1024x626.jpg.optimal.jpg" alt="Pizza">
                         <h3>Enjoy the Pizzas</h3>
                         <div class="form-group">
-                            <label for="pizza">Select Pizza</label>
+                            <label for="pizza">Chosse Pizza</label>
                             <select id="pizza" name="pizza" required>
-                                <option value="cheez_pizza">Cheese Pizza</option>
-                                <option value="veggie_pizza">Veggie Pizza</option>
-                                <option value="pepperoni_pizza">Pepperoni Pizza</option>
-                                <option value="meat_pizza">Meat Pizza</option>
-                                <option value="margherita_pizza">Margherita Pizza</option>
-                                <option value="bbq_chicken_pizza">BBQ Chicken Pizza</option>
+                                <option value="none">No Thanks</option>
+                                <option value="cheez_pizza">Cheese Pizza -$8.99</option>
+                                <option value="veggie_pizza">Veggie Pizza -$9.99</option>
+                                <option value="pepperoni_pizza">Pepperoni Pizza -$12.99</option>
+                                <option value="meat_pizza">Meat Pizza -$15.99</option>
+                                <option value="margherita_pizza">Margherita Pizza -$11.99</option>
+                                <option value="bbq_chicken_pizza">BBQ Chicken Pizza -$12.99</option>
                             </select>
+                            <br><br>
+                            <label for="quantity">Quantity:</label>
+                            <select id="pizza" name="pizza_quantity" required>
+                                <option value=0>No Thanks</option>
+                                <option value=1>One</option>
+                                <option value=2>Two</option>
+                                <option value=3>Three</option>
+                                <option value=4>Four</option>
+                            </select>
+                            <br>
+                            <br>
+                            <div>
+                            <nav>
+                                <a href="{% url 'pizza' %}">See Pizza's</a>
+                            </nav>
+                        </div>
                         </div>
                     </div>
                     <div class="pizza-item">
@@ -243,14 +289,31 @@
                         <h3>Enjoy the Drinks</h3>
                         <div class="form-group">
                             <label for="drinks">Select Drinks</label>
-                            <select id="drinks" name="drinks" required>
-                                <option value="cold_coffee">Cold Coffee</option>
-                                <option value="iced_tea">Iced Tea</option>
-                                <option value="coke">Coke</option>
-                                <option value="beer">Beer</option>
-                                <option value="lemonade">Lemonade</option>
-                                <option value="                                <option value="sparkling_water">Sparkling Water</option>
+                            <select id="drinks" name="drink" required>
+                                <option value="none">No Thanks</option>
+                                <option value="cold_coffee">Cold Coffee -$8.99</option>
+                                <option value="iced_tea">Iced Tea -$9.99</option>
+                                <option value="coke">Coke -$12.99</option>
+                                <option value="beer">Beer -$15.99</option>
+                                <option value="lemonade">Lemonade -$11.99</option>
+                                <option value="sparkling_water">Sparkling Water -$12.99</option>
                             </select>
+                            <br><br>
+                            <label for="quantity">Quantity:</label>
+                            <select id="drink" name="drink_quantity" required>
+                                <option value=0>No Thanks</option>
+                                <option value=1>One</option>
+                                <option value=2>Two</option>
+                                <option value=3>Three</option>
+                                <option value=4>Four</option>
+                            </select>
+                            <br>
+                            <br>
+                            <div>
+                            <nav>
+                                <a href="{% url 'drink' %}">See Drinks's</a>
+                            </nav>
+                        </div>
                         </div>
                     </div>
                     <div class="pizza-item">
@@ -258,22 +321,41 @@
                         <h3>Enjoy the Desserts</h3>
                         <div class="form-group">
                             <label for="desserts">Select Desserts</label>
-                            <select id="desserts" name="desserts" required>
-                                <option value="gulab_jamun">Gulab Jamun</option>
-                                <option value="kulfi">Kulfi</option>
-                                <option value="brownie">Brownie With Ice Cream</option>
-                                <option value="rasmalai">Rasmalai</option>
-                                <option value="tiramisu">Tiramisu</option>
-                                <option value="phirni">Phirni</option>
+                            <select id="desserts" name="dessert" required>
+                                <option value="none">No Thanks</option>
+                                <option value="gulab_jamun">Gulab Jamun -$8.99</option>
+                                <option value="kulfi">Kulfi -$9.99</option>
+                                <option value="brownie">Brownie With Ice Cream -$12.99</option>
+                                <option value="rasmalai">Rasmalai -$15.99</option>
+                                <option value="tiramisu">Tiramisu -$11.99</option>
+                                <option value="phirni">Phirni -$12.99</option>
                             </select>
+                            <br><br>
+                            <label for="quantity">Quantity:</label>
+                            <select id="dessert" name="dessert_quantity" required>
+                                <option value=0>No Thanks</option>
+                                <option value=1>One</option>
+                                <option value=2>Two</option>
+                                <option value=3>Three</option>
+                                <option value=4>Four</option>
+                            </select>
+                            <br>
+                            <br>
+                            <div>
+                            <nav>
+                                <a href="{% url 'dessert' %}">See Desserts</a>
+                            </nav>
+                        </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="button-container">
-                <a href="#" class="button">Order Now</a>
-            </div>
+            {% comment %} <div class="button-container">
+                <a href="{% url "order_detail" %}" class="button">Order Now</a>
+            </div> {% endcomment %}
+            <button type="submit">Order Now</button>
         </div>
+    </form>
     </div>
 
     <footer>
