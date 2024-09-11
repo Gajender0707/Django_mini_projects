@@ -133,7 +133,6 @@
         <a href="{% url 'contact_us' %}">Contact Us</a>
     </nav>
 <div>
-    {{ data }}
 </div>
     <div class="container">
         <h1>Order Summary</h1>
@@ -154,12 +153,14 @@
                 </tr>
             </thead>
             <tbody>
+                {% for item_name, item_quantity, item_price, total in data  %}
                 <tr>
-                    <td>Pizza Margherita</td>
-                    <td>2</td>
-                    <td>$10.00</td>
-                    <td>$20.00</td>
+                    <td>{{ item_name }}</td>
+                    <td>{{ item_quantity }}</td>
+                    <td>{{ item_price }}</td>
+                    <td>{{ total }}</td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
 

@@ -1,14 +1,16 @@
-pizza_price_details={
-            "cheez_pizza":100,
-            "veggie_pizza":89,
-            "pepperoni_pizza":120,
-            "meat_pizza":160,
-            "margherita_pizza":129,
-            "bbq_chicken_pizza":189
-        }
+order_data = {
+        'Items_name': ['meat_pizza', 'coke', 'rasmalai'],
+        'Items_quantity': [2,1,3],
+        'Items_price': [160, 75, 99],
+    }
 
-pizza_name="pepperoni_pizza"
 
-for name,price in pizza_price_details.items():
-    if name==pizza_name:
-        print(name,price)
+total=[ i*j for i,j in zip(order_data["Items_price"],order_data["Items_quantity"])]
+
+print(total)
+order_data["total"]=total
+
+print(order_data)
+
+
+    

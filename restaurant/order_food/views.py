@@ -106,13 +106,19 @@ def order_food(request):
 
 
 
+
         my_data={
             "Items_name":[pizza_name,drink_name,dessert_name],
             "Items_quantity":[pizza_quantity,drink_quantity,dessert_quantity],
-            "Items_price":[pizza_price,drink_price,dessert_price]
+            "Items_price":[pizza_price,drink_price,dessert_price],
         }
-        print(my_data)
-        context={"data":my_data}
+
+        combined_order_data = zip(my_data['Items_name'], my_data['Items_quantity'], my_data['Items_price'])
+        # print(my_data)
+        total=[ int(i)*int(j) for i,j in zip(my_data["Items_price"],my_data["Items_quantity"])]
+        my_data["total"]=total
+        combined_order_data = zip(my_data['Items_name'], my_data['Items_quantity'], my_data['Items_price'],my_data["total"])
+        context={"data":combined_order_data}
         return render(request,"order_detail.html",context)
     return render(request,"order_food.html")
 
