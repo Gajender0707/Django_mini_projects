@@ -55,7 +55,64 @@ def order_food(request):
         dessert_name=data.get("dessert")
         dessert_quantity=data.get("dessert_quantity")
         # print(pizza_name,pizza_quantity,drink_name,drink_quantity,dessert_name,dessert_quantity)
-        context={"data":data}
+        # print(data)
+        pizza_price_details={
+            "cheez_pizza":100,
+            "veggie_pizza":89,
+            "pepperoni_pizza":120,
+            "meat_pizza":160,
+            "margherita_pizza":129,
+            "bbq_chicken_pizza":189
+        }
+
+        drink_price_details={
+            "cold_coffee":120,
+            "iced_tea":99,
+            "coke":75,
+            "beer":140,
+            "lemonade":119,
+            "sparkling_water":79
+        }
+
+
+        dessert_price_details={
+            "gulab_jamun":30,
+            "kulfi":49,
+            "brownie":89,
+            "rasmalai":99,
+            "tiramisu":110,
+            "phirni":79
+        }
+
+
+        pizza_price=None
+        drink_price=None
+        dessert_price=None
+
+        ## validating the price...
+
+        for name,price in pizza_price_details.items():
+            if name==pizza_name:
+                pizza_price=price
+
+        for name,price in drink_price_details.items():
+            if name==drink_name:
+                drink_price=price
+
+
+        for name,price in dessert_price_details.items():
+            if name==dessert_name:
+                dessert_price=price
+
+
+
+        my_data={
+            "Items_name":[pizza_name,drink_name,dessert_name],
+            "Items_quantity":[pizza_quantity,drink_quantity,dessert_quantity],
+            "Items_price":[pizza_price,drink_price,dessert_price]
+        }
+        print(my_data)
+        context={"data":my_data}
         return render(request,"order_detail.html",context)
     return render(request,"order_food.html")
 
