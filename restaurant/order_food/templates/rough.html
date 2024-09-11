@@ -247,7 +247,16 @@ a.button:hover {
                             <img src="https://www.cookwithmanali.com/wp-content/uploads/2022/04/Cold-Coffee-500x500.jpg">
                             <h3>Enjoy the Drinks</h3>
                             <nav>
-                                <a href="{% url 'drink' %}">Drinks</a>
+                                <div class="form-group">
+                                    <label for="drinks">Select Drinks<label>
+                                    <select id="drinks" name="drinks" required>
+                                        <option value="cold_coffee">Cold Coffee</option>
+                                        <option value="iced_tea">Iced Tea</option>
+                                        <option value="coke">Coke </option>
+                                        <option value="beer">Beer </option>
+                                        <option value="lemonade">Lemonade </option>
+                                        <option value="sparkling_water">Sparkling Waterr</option>
+                                    </select>
                             </nav>
                         </div>
                         <div class="pizza-item">
@@ -255,7 +264,16 @@ a.button:hover {
                             <h3>Enjoy the Desserts</h3>
                             <nav>
 
-                                <a href="{% url 'dessert' %}">Desserts</a>
+                                <div class="form-group">
+                                    <label for="desserts">Select Desserts<label>
+                                    <select id="desserts" name="desserts" required>
+                                        <option value="gulab_jamun">Gulab Jamun</option>
+                                        <option value="kulfi">Kulfi </option>
+                                        <option value="brownie">Brownie With Ice Cream</option>
+                                        <option value="rasmalai">Rasmalai</option>
+                                        <option value="tiramisu">Tiramisu</option>
+                                        <option value="phirni">Phirni</option>
+                                    </select>
                             </nav>
                         </div>                 
                     </div>

@@ -40,3 +40,6 @@ def privacy(request):
 
 def terms(request):
     return render(request,"terms.html")
+
+def order_food(request):
+    return render(request,"order_food.html")
