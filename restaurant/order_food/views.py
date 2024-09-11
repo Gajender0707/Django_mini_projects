@@ -57,7 +57,7 @@ def order_food(request):
         # print(pizza_name,pizza_quantity,drink_name,drink_quantity,dessert_name,dessert_quantity)
         # print(data)
         pizza_price_details={
-            "cheez_pizza":100,
+            "cheez_pizza":99,
             "veggie_pizza":89,
             "pepperoni_pizza":120,
             "meat_pizza":160,
