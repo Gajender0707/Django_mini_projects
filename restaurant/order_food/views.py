@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from .models import *
 from datetime import datetime
 from random import randint
+from django.contrib import messages
 
 # Create your views here.
 
@@ -11,10 +12,60 @@ def home(request):
 
 
 def login(request):
+    if request.method=="POST":
+        data=request.POST
+        ##accessing the data from page..
+        username=data.get("username")
+        password=data.get("password")
+    
+        ##fetching data from db..
+        # user=User.objects.all()
+        user=User.objects.filter(username=username)
+        print(user)
+        if user.exists():
+            # user=User.objects.all()
+            for user in user:
+                print(user.first_name)
+                print(user.username)
+                print(user.last_name)
+
+                messages.success(request,"Welcome.")
+                redirect("home")
+        else:
+            print("User not Available")
+            messages.error(request,"User not exits.")
+            redirect("login")
+
+        return redirect("login")
     return render(request,"login.html")
 
 
 def register(request):
+
+    if request.method=="POST":
+        data=request.POST
+        first_name=data.get("first_name")
+        last_name=data.get("last_name")
+        username=data.get("username")
+        email=data.get("email")
+        password=data.get("Password")
+
+        user=User.objects.filter(username=username)
+        if user.exists():
+            messages.error(request,"User Alread Taken .")
+            return redirect("register")
+
+        else:
+            user=User.objects.create(
+                first_name=first_name,
+                last_name=last_name,
+                username=username,
+                email=email,
+            )
+        user.set_password(password)
+        user.save()
+        messages.success(request,"Account Created Successfully...")
+        return redirect("register")
     return render(request,"register.html")
 
 
