@@ -10,6 +10,9 @@ from django.contrib import messages
 def home(request):
     return render(request,"index.html")
 
+def new(request):
+    return render(request,"new.html")
+
 
 def login(request):
     if request.method=="POST":
@@ -28,13 +31,18 @@ def login(request):
                 print(user.first_name)
                 print(user.username)
                 print(user.last_name)
+                print(user.password)
+                print(user.id)
+                context={"first_name":user.first_name,
+                         "last_name":user.last_name,
+                         "username":user.username}
 
-                messages.success(request,"Welcome.")
-                redirect("home")
+                # messages.success(request,"Welcome.")
+                return render(request,"new.html",context=context)
         else:
             print("User not Available")
             messages.error(request,"User not exits.")
-            redirect("login")
+            return redirect("login")
 
         return redirect("login")
     return render(request,"login.html")
@@ -207,6 +215,7 @@ def order_food(request):
 
 
         return render(request,"order_detail.html",context)
+    
     return render(request,"order_food.html")
 
 

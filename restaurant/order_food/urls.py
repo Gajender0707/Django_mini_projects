@@ -14,5 +14,6 @@ urlpatterns = [
     path("privacy/",views.privacy,name="privacy"),
     path("terms/",views.terms,name="terms"),
     path("order_food/",views.order_food,name="order_food"),
-    path("order_detail/",views.order_detail,name="order_detail")
+    path("order_detail/",views.order_detail,name="order_detail"),
+    path("login/<id>",views.new,name="new")
 ]

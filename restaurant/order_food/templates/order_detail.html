@@ -128,7 +128,7 @@
     </header>
 
     <nav>
-        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'new' %}">Home</a>
         <a href="{% url 'order_food' %}">Order More</a>
         <a href="{% url 'contact_us' %}">Contact Us</a>
     </nav>
@@ -138,7 +138,7 @@
         <div class="order-summary">
             <p><strong>Order Number:</strong> AYRAORDNO{{ order_id }}</p>
             <p><strong>Order Date:</strong> {{ order_date }}</p>
-            <p><strong>Customer Name:</strong> John Doe</p>
+            <p><strong>Customer Name:</strong> {{ first_name }} {{ last_name }}</p>
             <p><strong>Shipping Address:</strong> 123 Main St, City, Country</p>
         </div>
 
