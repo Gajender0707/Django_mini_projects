@@ -1,0 +1,15 @@
+{% extends "main.html" %} 
+
+
+{% block content %}
+Room page.
+<div>
+    <h3>
+    {% for id,name  in rooms %}
+        {{ id }} -- {{ name }}
+        <br>
+    {% endfor %}
+    </h3>
+
+</div>
+{% endblock %}

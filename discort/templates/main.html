@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}discord{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1></h1>
+    </header>
+
+    <nav>
+        {% include "navbar.html" %}
+    </nav>
+
+    <main>
+        {% block content %}
+        <!-- Child templates will override this block -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Website</p>
+    </footer>
+</body>
+</html>
