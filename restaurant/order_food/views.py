@@ -3,6 +3,8 @@ from .models import *
 from datetime import datetime
 from random import randint
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
 
@@ -10,41 +12,31 @@ from django.contrib import messages
 def home(request):
     return render(request,"index.html")
 
-def new(request):
-    return render(request,"new.html")
 
 
-def login(request):
+def login_page(request):
     if request.method=="POST":
         data=request.POST
         ##accessing the data from page..
         username=data.get("username")
         password=data.get("password")
-    
-        ##fetching data from db..
-        # user=User.objects.all()
-        user=User.objects.filter(username=username)
+
+        if not User.objects.filter(username=username).exists():
+            messages.error(request,"Invalid Username")
+            return redirect("login_page")
+        print(username,password)
+
+        user=authenticate(request,username=username,password=password)
         print(user)
-        if user.exists():
-            # user=User.objects.all()
-            for user in user:
-                print(user.first_name)
-                print(user.username)
-                print(user.last_name)
-                print(user.password)
-                print(user.id)
-                context={"first_name":user.first_name,
-                         "last_name":user.last_name,
-                         "username":user.username}
 
-                # messages.success(request,"Welcome.")
-                return render(request,"new.html",context=context)
+        if user is None:
+                messages.error(request,"Invalid Password")
+                return redirect("login_page")
+        
         else:
-            print("User not Available")
-            messages.error(request,"User not exits.")
-            return redirect("login")
+                login(request,user)
+                return redirect("home")
 
-        return redirect("login")
     return render(request,"login.html")
 
 
@@ -63,8 +55,7 @@ def register(request):
             messages.error(request,"User Alread Taken .")
             return redirect("register")
 
-        else:
-            user=User.objects.create(
+        user=User.objects.create(
                 first_name=first_name,
                 last_name=last_name,
                 username=username,
@@ -73,7 +64,8 @@ def register(request):
         user.set_password(password)
         user.save()
         messages.success(request,"Account Created Successfully...")
-        return redirect("register")
+        return redirect("login_page")
+    
     return render(request,"register.html")
 
 
